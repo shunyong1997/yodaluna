@@ -16,7 +16,7 @@ const growInterval = setInterval(() => {
     noBtn.style.transform = `translateX(${distance}px)`;
 }, 300);
 
-/* -------- NO BUTTON SHENANIGANS -------- */
+/* -------- NO BUTTON -------- */
 const noTexts = [
     "No 🙄",
     "are you sure ah",
