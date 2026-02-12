@@ -1,27 +1,61 @@
+/* ---------- BODY & BACKGROUND ---------- */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
+/* subtle floating hearts in the background */
+body::before {
+    content: "💖 💘 💝 💗 💓";
+    position: fixed;
+    font-size: 22px;
+    opacity: 0.08;
+    top: 10%;
+    left: 5%;
+    line-height: 60px;
+    pointer-events: none;
+}
+
+/* ---------- CARD ---------- */
 .container {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 40px 30px;
+    border-radius: 24px;
     width: 90vw;
     max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: popIn 0.4s ease;
 }
 
-h1 { font-size: clamp(24px, 6vw, 40px); }
-h2 { font-size: clamp(18px, 4vw, 24px); }
-h3 { font-size: clamp(20px, 5vw, 28px); margin-bottom: 25px; }
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
+/* ---------- HEADINGS ---------- */
+h1 {
+    font-size: clamp(26px, 6vw, 42px);
+    margin-bottom: 10px;
+}
+h2 {
+    color: #666;
+    font-weight: 400;
+}
+h3 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* ---------- BUTTONS ---------- */
 .buttons {
     display: flex;
     justify-content: center;
@@ -33,48 +67,55 @@ button {
     padding: 14px 24px;
     font-size: 18px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    position: relative;
 }
 
-#yesBtn { background-color: #ff4d6d; color: white; }
-#noBtn { background-color: #ccc; }
+/* YES button style */
+#yesBtn {
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    color: white;
+    box-shadow: 0 8px 15px rgba(255, 77, 109, 0.3);
+    z-index: 1;
+}
+#yesBtn:hover { transform: translateY(-2px); }
 
-button:active { transform: scale(0.95); }
+/* NO button style */
+#noBtn {
+    background-color: #eee;
+    color: #333;
+    z-index: 2;
+}
+#noBtn:hover { background-color: #ddd; }
 
+/* smooth scaling for growing/shrinking */
+#yesBtn, #noBtn { transition: transform 0.2s ease; }
+
+/* ---------- RESPONSE ---------- */
 #response {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
+    color: #ff4d6d;
+    min-height: 48px;
 }
 
-@media (max-width: 600px) {
-    .buttons { flex-direction: column; }
-}
-
-/* make button grow/shrink smoothly, otherwise damn ugly */
-#yesBtn,
-#noBtn {
-    transition: transform 0.2s ease;
-}
-
-/* hearts flying everywhere when she press YES */
+/* ---------- HEARTS ---------- */
 .heart {
     position: fixed;
     font-size: 24px;
     animation: floatUp 2s linear forwards;
-    pointer-events: none; /* don’t block clicking */
+    pointer-events: none;
+}
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-600px); opacity: 0; }
 }
 
-/* float up then disappear */
-@keyframes floatUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-600px);
-        opacity: 0;
-    }
+/* ---------- MEDIA ---------- */
+@media (max-width: 600px) {
+    .buttons { flex-direction: column; }
 }
