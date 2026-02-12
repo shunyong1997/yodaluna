@@ -2,7 +2,11 @@
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+
+    /* Background image */
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,6 +15,19 @@ body {
     overflow: hidden;
     position: relative;
 }
+
+/* Optional: add so card text is readable */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25); /* adjust opacity for readability */
+    z-index: 0;
+}
+
 
 /* subtle floating hearts in the background */
 body::before {
@@ -26,14 +43,17 @@ body::before {
 
 /* ---------- CARD ---------- */
 .container {
-    background: white;
+    background: rgba(255, 255, 255, 0.85); /* slight transparency for nicer blending */
     padding: 40px 30px;
     border-radius: 24px;
     width: 90vw;
-    max-width: 500px;
+    max-width: 450px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     animation: popIn 0.4s ease;
+    z-index: 1;
+    position: relative;
 }
+
 
 @keyframes popIn {
     from { transform: scale(0.9); opacity: 0; }
