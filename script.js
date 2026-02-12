@@ -37,7 +37,7 @@ noBtn.addEventListener("click", () => {
 /* YES pressed        */
 /* ------------------ */
 yesBtn.addEventListener("click", () => {
-    response.innerHTML = "I KNEW IT 😎💖<br>Best decision you've ever made.";
+    response.innerHTML = "I KNEW IT <br>Best decision you've ever made.";
     noBtn.style.display = "none";
 
     createHearts();
