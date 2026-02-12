@@ -52,3 +52,29 @@ button:active { transform: scale(0.95); }
 @media (max-width: 600px) {
     .buttons { flex-direction: column; }
 }
+
+/* make button grow/shrink smoothly, otherwise damn ugly */
+#yesBtn,
+#noBtn {
+    transition: transform 0.2s ease;
+}
+
+/* hearts flying everywhere when she press YES */
+.heart {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp 2s linear forwards;
+    pointer-events: none; /* don’t block clicking */
+}
+
+/* float up then disappear */
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-600px);
+        opacity: 0;
+    }
+}
