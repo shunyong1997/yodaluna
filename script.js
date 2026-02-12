@@ -1,4 +1,5 @@
 /* -------- VARIABLES -------- */
+
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const response = document.getElementById("response");
@@ -6,17 +7,6 @@ const response = document.getElementById("response");
 let yesScale = 1;
 let noClicks = 0;
 
-/* -------- YES BUTTON SLOW GROW & PUSH NO -------- */
-const growInterval = setInterval(() => {
-    yesScale += 0.05;
-    yesBtn.style.transform = `scale(${yesScale})`;
-
-    // push NO away
-    const distance = (yesScale - 1) * 20;
-    noBtn.style.transform = `translateX(${distance}px)`;
-}, 300);
-
-/* -------- NO BUTTON -------- */
 const noTexts = [
     "No 🙄",
     "are you sure ah",
@@ -26,18 +16,21 @@ const noTexts = [
     "ok I press YES for you 😭"
 ];
 
+/* NO click */
 noBtn.addEventListener("click", () => {
     noClicks++;
     let i = Math.min(noClicks, noTexts.length - 1);
     noBtn.innerText = noTexts[i];
+
+    // YES grows and overlays NO
+    yesScale += 0.1;
+    yesBtn.style.transform = `scale(${yesScale})`;
 });
 
-/* -------- YES BUTTON CLICK -------- */
+/* YES click */
 yesBtn.addEventListener("click", () => {
-    clearInterval(growInterval);
     response.innerHTML = "I KNEW IT 😎💖<br>Best decision you've ever made.";
     noBtn.style.display = "none";
-    createHearts();
 });
 
 /* -------- HEART EXPLOSION -------- */
