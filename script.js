@@ -3,7 +3,7 @@ const noBtn = document.getElementById("noBtn");
 const response = document.getElementById("response");
 
 yesBtn.addEventListener("click", () => {
-    response.innerHTML = "I KNEW IT 😎💖<br>Best decision you've ever made. - Shunyong";
+    response.innerHTML = "I KNEW IT 😎💖<br>Best decision you've ever made.";
     noBtn.style.display = "none";
     yesBtn.style.width = "100%";
 });
