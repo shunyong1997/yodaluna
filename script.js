@@ -13,7 +13,10 @@ const noTexts = [
     "really meh",
     "last chance leh",
     "I call your husband already 📞",
-    "ok I press YES for you 😭"
+    "I'm gonna go beat yoda now",
+    "Last warning",
+    "Fight me",
+    "ok only left with yes now"
 ];
 
 /* NO click */
