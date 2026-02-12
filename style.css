@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", sans-serif;
 
     /* Full-screen background */
-    background: url('94f5a5c3-919e-48d8-bc97-7cdcb6cc4918.png') no-repeat center center fixed;
+    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
 
     display: flex;
